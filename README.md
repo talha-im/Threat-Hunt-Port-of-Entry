@@ -28,6 +28,7 @@
   - [Flag 19: LATERAL MOVEMENT - Secondary Target](#-flag-19-lateral-movement---secondary-target)
   - [Flag 20: LATERAL MOVEMENT - Remote Access Tool](#-flag-20-lateral-movement---remote-access-tool)
 - [MITRE ATT&CK Technique Mapping](#-mitre-attck-technique-mapping)
+- [Detection Opportunities Identified](#-detection-opportunities-identified)
 - [Conclusion](#-conclusion)
 - [Lessons Learned](#-lessons-learned)
 - [Recommendations for Remediation](#%EF%B8%8F-recommendations-for-remediation)
@@ -54,8 +55,7 @@ DeviceProcessEvents
 | where DeviceName == "azuki-sl"
 | where Timestamp between (datetime(2025-11-19) .. datetime(2025-11-20))
 ```
-## Scope & Assumptions
-
+### Scope and Assumptions
 - Investigation focused on a single endpoint: `AZUKI-SL`
 - Telemetry sourced exclusively from Microsoft Defender for Endpoint
 - No identity provider, firewall, email, or proxy logs were available
@@ -760,7 +760,7 @@ The threat hunt revealed a structured, multi-stage intrusion that relied heavily
 5. Data staging and exfiltration testing, preparing outbound transfer channels.
 6. Covering tracks, by planting narrative artifacts to mislead an investigation.
 
-The hunt demonstrated how even lightweight attacker activity leaves detectable footprints across Windows telemetry. By correlating small anomalies—unexpected file creations, scheduled task artifacts, unusual connections, and deceptive files—the full attack chain became visible.No conclusive threat actor attribution was possible based solely on observed TTPs and available telemetry.
+The hunt demonstrated how even lightweight attacker activity leaves detectable footprints across Windows telemetry. By correlating small anomalies—unexpected file creations, scheduled task artifacts, unusual connections, and deceptive files—the full attack chain became visible. No conclusive threat actor attribution was possible based solely on observed TTPs and available telemetry.
 
 
 ---
