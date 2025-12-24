@@ -3,7 +3,7 @@
 ![Threat Hunt](https://img.shields.io/badge/Threat_Hunt-Active-red) ![KQL](https://img.shields.io/badge/KQL-Advanced-blue) ![MITRE%20ATT%26CK](https://img.shields.io/badge/MITRE-ATT%26CK-orange) ![Detection Engineering](https://img.shields.io/badge/Detection-Engineering-green)
 
 
-**Analyst:** Talha Iftikhar
+**Analyst:** Talha Iftikhar   
 **Date:** November 23rd, 2025  
 **Source:** CyberRange SOC Challenge  
 **System:** azuki-adminpc  
