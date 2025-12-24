@@ -1,12 +1,21 @@
-# Threat Hunt: Port of Entry
+# Threat Hunt: *"Port of Entry"*
+
+![Threat Hunt](https://img.shields.io/badge/Threat_Hunt-Active-red) ![KQL](https://img.shields.io/badge/KQL-Advanced-blue) ![MITRE%20ATT%26CK](https://img.shields.io/badge/MITRE-ATT%26CK-orange) ![Detection Engineering](https://img.shields.io/badge/Detection-Engineering-green)
+
+
+**Analyst:** Talha Iftikhar
+**Date:** November 23rd, 2025  
+**Source:** CyberRange SOC Challenge  
+**System:** azuki-adminpc  
+**Platform:** Microsoft Defender for Endpoint
 
 <img width="740" height="1110" alt="image" src="https://github.com/user-attachments/assets/f6352076-3a19-4fc9-abdb-a2a3060c1ca7" />
 
 # 📚 Table of Contents
 
-- [Threat Hunt: "Port of Entry"](#%EF%B8%8F%E2%80%8D%EF%B8%8F-threat-hunt-port-of-entry)
-- [Platforms and Tools](#-platforms-and-tools)
-- [Summary of Findings](#-summary-of-findings)
+- [Scenario](#scenario)
+- [Platforms and Tools](#platforms-and-tools)
+- [Summary of Findings](#summary-of-findings)
   - [Flag 1: INITIAL ACCESS - Remote Access Source](#-flag-1-initial-access---remote-access-source)
   - [Flag 2: INITIAL ACCESS - Compromised User Account](#-flag-2-initial-access---compromised-user-account)
   - [Flag 3: DISCOVERY - Network Reconnaissance](#-flag-3-discovery---network-reconnaissance)
@@ -27,15 +36,13 @@
   - [Flag 18: EXECUTION - Malicious Script](#-flag-18-execution---malicious-script)
   - [Flag 19: LATERAL MOVEMENT - Secondary Target](#-flag-19-lateral-movement---secondary-target)
   - [Flag 20: LATERAL MOVEMENT - Remote Access Tool](#-flag-20-lateral-movement---remote-access-tool)
-- [MITRE ATT&CK Technique Mapping](#-mitre-attck-technique-mapping)
-- [Detection Opportunities Identified](#-detection-opportunities-identified)
-- [Conclusion](#-conclusion)
-- [Lessons Learned](#-lessons-learned)
-- [Recommendations for Remediation](#%EF%B8%8F-recommendations-for-remediation)
+- [MITRE ATT&CK Technique Mapping](#mitre-attck-technique-mapping)
+- [Detection Opportunities Identified](#detection-opportunities-identified)
+- [Conclusion](#conclusion)
+- [Lessons Learned](#lessons-learned)
+- [Recommendations for Remediation](#recommendations-for-remediation)
 
 ---
-
-# 🕵️‍♂️ Threat Hunt: *"Port of Entry"*
 
 ## Scenario
 INCIDENT BRIEF - Azuki Import/Export - 梓貿易株式会社
@@ -71,7 +78,7 @@ This report includes:
 
 ---
 
-## 🧰 Platforms and Tools
+## Platforms and Tools
 
 **Analysis Environment:**
 - Microsoft Defender for Endpoint
@@ -84,7 +91,7 @@ This report includes:
 
 ---
 
-## 📔 Summary of Findings
+## Summary of Findings
 
 | Flag | Detection Goal | Finding | TimeStamp (UTC) |
 |------|------------------------------------|---------|-----------|
@@ -712,7 +719,7 @@ Built-in remote access tools are preferred for lateral movement as they blend wi
 
 ---
 
-## 🎯 MITRE ATT&CK Technique Mapping
+## MITRE ATT&CK Technique Mapping
 
 | Flag |  Description                                                          | MITRE ATT&CK Technique(s)                                                                                                    |
 | ---- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -739,7 +746,7 @@ Built-in remote access tools are preferred for lateral movement as they blend wi
 
 ---
 
-## 🔍 Detection Opportunities Identified
+## Detection Opportunities Identified
 
 - Alert on Windows Defender exclusion changes (high-fidelity signal)
 - Detect `certutil.exe` with URL arguments and output file paths
@@ -749,7 +756,7 @@ Built-in remote access tools are preferred for lateral movement as they blend wi
 - Flag first-time outbound connections to public IPs by system binaries
 
 
-## 🧾 Conclusion
+## Conclusion
 
 The threat hunt revealed a structured, multi-stage intrusion that relied heavily on living-off-the-land techniques, stealthy persistence mechanisms, system reconnaissance, and staged data exfiltration. The adversary leveraged legitimate remote access points, blended malicious activity with normal Windows processes, and created deceptive artifacts to obscure intent. Each flag represented a distinct phase of the intrusion, showing a clear progression:
 
@@ -765,7 +772,7 @@ The hunt demonstrated how even lightweight attacker activity leaves detectable f
 
 ---
 
-## 🎓 Lessons Learned
+## Lessons Learned
 ### 1. Even simple attacker tradecraft leaves multi-telemetry footprints.
 The operator used mostly built-in Windows tools (PowerShell, explorer.exe, schtasks.exe). Despite the low profile, the attack chain was still traceable through correlated timestamps, directory activity, registry artifacts, and process execution logs.
 
@@ -791,7 +798,7 @@ Without these data sources, identifying the attacker’s sequence would be signi
 
 ---
 
-## 🛠️ Recommendations for Remediation
+## Recommendations for Remediation
 
 ### 1. Harden Remote Access
 
