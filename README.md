@@ -64,10 +64,10 @@ DeviceProcessEvents
 
 This report includes:
 
-- 📅 Timeline reconstruction of auditing, reconnaissance, and attempted exfiltration of data on the device **`azuki-sl`**
-- 📜 Detailed queries using Microsoft Defender Advanced Hunting (KQL)
-- 🎯 MITRE ATT&CK mapping to understand TTP alignment
-- 🧪 Evidence-based summaries supporting each flag and behavior discovered
+- Timeline reconstruction of auditing, reconnaissance, and attempted exfiltration of data on the device **`azuki-sl`**
+- Detailed queries using Microsoft Defender Advanced Hunting (KQL)
+- MITRE ATT&CK mapping to understand TTP alignment
+- Evidence-based summaries supporting each flag and behavior discovered
 
 ---
 
